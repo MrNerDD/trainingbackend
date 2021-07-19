@@ -1,0 +1,14 @@
+#step1
+# sb se phly hmara backend ka program core ke urls.py main hota hai.
+# sub se pahly yahan per path dena hai .admin wala by default hota hai.
+# humne apna path bnana hai jese 21 line per bnaya hai hmari puri app us main hogi.
+# step 2 (urls.py api main hoga ab)
+
+#step3 ab views.py main hoga shuru
+#step4 krlia hai or function call hogya hai ab postman main check krna hai 
+#ke data frontend pe gya hai ya ni
+#step 5 ab post ki req bnayen gy view.py main
+#step 6 shuru hoga models.py se ab database per kam krain gy
+#step 7 yahan se shuru hoga serializer bnany ke bd yahan kam krna hai
+#step 7 serializers bnany hain 
+#step 8 ab views.py main shuru hoga
