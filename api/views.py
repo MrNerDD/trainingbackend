@@ -65,4 +65,10 @@ def get_onestudentdata(request):
     student=Student.objects.get(id=1)
     serializer=StudentSerializer(student,many=False)
     return Response(serializer.data)
+#url main he direct id likh kr data mangwane ka tareeqa 
+@api_view(['GET']) 
+def get_onestudentdata_withparameter(request,name): 
+    student=Student.objects.get(name=name)
+    serializer=StudentSerializer(student,many=False)
+    return Response(serializer.data)
 

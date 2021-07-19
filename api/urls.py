@@ -3,7 +3,7 @@
 
 
 from django.urls import path 
-from .views import get_response, post_response,post_response_to_frontend,add_student,get_studentdata,get_onestudentdata # ye step 4 hai... function ko import kea hai yahan
+from .views import get_response, post_response,post_response_to_frontend,add_student,get_studentdata,get_onestudentdata,get_onestudentdata_withparameter# ye step 4 hai... function ko import kea hai yahan
 urlpatterns = [
                     
      path('',get_response),         #ab yahan function call krna pry ga magar 
@@ -15,6 +15,10 @@ urlpatterns = [
      path('addstudent/',add_student),      
      path('getbackenddata/',get_studentdata ),
      path('getonestudentdata/',get_onestudentdata ),
+     path('getdatawithparameter/<str:name>/', get_onestudentdata_withparameter), #link through data mangwana
+
+
+    
      
      
      
