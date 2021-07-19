@@ -21,7 +21,7 @@ urlpatterns = [
 #step3 ab views.py main hoga shuru
 #step4 krlia hai or function call hogya hai ab postman main check krna hai 
 #ke data frontend pe gya hai ya ni
-#step 5 ab post ki req bnayen gy view.py main
+#step 5 ab post ki req bnayen gy views.py main
 '''
     jab bhi project per kam krna hai tau app ka name settings.py ko btana hota hai
     iss project main hmari app ka name api hai    

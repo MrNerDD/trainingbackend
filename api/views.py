@@ -48,5 +48,7 @@ def add_student(request): #ye function bnaya hai
     #wo save_data_serializer main ajaye ga 
     return Response(save_data_serializer.data) #.data ana he ana hai jab aisa kam ho
     #ab post man main dekhna hai data frontend se backend per arha hai ya ni
+    #step8 admin .py main hoga ,
+    #data ko database per show krne keliye models.py ko admin.py main call krna hoga
    
 
