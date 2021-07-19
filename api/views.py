@@ -1,4 +1,6 @@
 #step3 yahan se shuru hoga 
+from rest_framework.serializers import Serializer
+from api.models import Student
 from django.shortcuts import render
 from rest_framework.response import Response #ye bhi khud krna hai humne 
 #or ye json ki form object ki form main frontend per data bhejta hai
@@ -50,5 +52,17 @@ def add_student(request): #ye function bnaya hai
     #ab post man main dekhna hai data frontend se backend per arha hai ya ni
     #step8 admin .py main hoga ,
     #data ko database per show krne keliye models.py ko admin.py main call krna hoga
-   
+#all students ka data hqasil krne keliye keliye
+@api_view(['GET']) 
+def get_studentdata(request): 
+    student=Student.objects.all()   #models main jitna data hai backend se front end per bhejny keliye 
+                                    #student chota wala variable hai or Student model hai line 57 per jo code hai
+    serializer=StudentSerializer(student,many=True) #56 line per variable pass jo data tha ab wo 59 per serializer pass hai                                
+    return Response(serializer.data)
+#single student ka data mangwane keliye 
+@api_view(['GET']) 
+def get_onestudentdata(request): 
+    student=Student.objects.get(id=1)
+    serializer=StudentSerializer(student,many=False)
+    return Response(serializer.data)
 
