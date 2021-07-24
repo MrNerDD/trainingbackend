@@ -39,9 +39,9 @@ def post_response_to_frontend(request):
 @api_view(['POST'])
 def add_student(request): #ye function bnaya hai
     savedata=request.data  #ye variable bnaya hai iss main frontend se any wala data bqackend main save krne klye
-    #jo serializer bnaya hai pahly usy import krna hai StudentSerializer ko uper
+    #jo serializer bnaya hai pahly usy import krna hai StudentSerializer ke uper
     save_data_serializer=StudentSerializer(data=savedata)
-    if save_data_serializer.is_valid(): 
+    if save_data_serializer.is_valid(): # yahan per serializer ana hai 
         #if wali line data check kry gi valid hai ya ni 
         save_data_serializer.save()
         #agr data valid hua tau data save krwady gi 
@@ -71,4 +71,24 @@ def get_onestudentdata_withparameter(request,name):
     student=Student.objects.get(name=name)
     serializer=StudentSerializer(student,many=False)
     return Response(serializer.data)
+#same name ke jitny students hain wo sary ajayen
+@api_view(['GET']) 
+def get_samename_studentdata_withparameter(request,name): 
+    student=Student.objects.filter(name=name)
+    serializer=StudentSerializer(student,many=True)
+    return Response(serializer.data)
+# jab data update krna ho tab put lgani hai 
+@api_view(['PUT'])   
+def update_student_data(request,id):
+    student=Student.objects.get(id=id)
+    raw_data=request.data  #ab raw data mina hi data  #or raw data main updated data ajaye ga 
+    student.name=raw_data["name"]
+    student.age=raw_data["age"]
+    student.save()
+    serializer=StudentSerializer(student,many=False)
+    return Response(serializer.data)
+
+        
+
+
 
