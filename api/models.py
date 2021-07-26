@@ -26,13 +26,13 @@ class Subject(models.Model):      #ye table bnaya hai table per kam hoga
         return self.name
 class Comment(models.Model):
     comment=models.CharField(max_length=1000)
-    student=models.ForeignKey(Student,on_delete=models.CASCADE)
+    student=models.ForeignKey(Student,on_delete=models.CASCADE,related_name="comment_student")
 
     
     
     
     def __str__(self):
-        return self.name
+        return self.student.name
 '''
 jab bhi database main changing kro or databse bnao tau 
 cmd main ye 2 command run krni hain

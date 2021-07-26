@@ -88,6 +88,19 @@ def update_student_data(request,id):
     serializer=StudentSerializer(student,many=False)
     return Response(serializer.data)
 
+
+
+    '''
+    database quries
+    Model_name.objects.get(name=name)   fetch single field
+    Model_name.objects.all()            fetch all fields
+    Model_name.objects.filter(name=name) fetch all fields according to filter 
+    Model_name.objects.order_by(-date)   fetch all fields according to date
+    Model_name.objects.order_by("?")      fetch all fields ramdon
+    Entry.objects.get(headline__icontains='Lennon') for search query
+    Entry.objects.get(headline__gte='Lennon') 
+    '''
+
         
 
 
